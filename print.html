@@ -1,0 +1,1350 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The C19 Protocol / Developer Guide</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The C19 Protocol / Developer Guide</a></li><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="concepts.html"><strong aria-hidden="true">1.</strong> Concepts</a></li><li class="chapter-item expanded "><a href="architecture.html"><strong aria-hidden="true">2.</strong> Architecture</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-state-layer.html"><strong aria-hidden="true">2.1.</strong> The State Layer</a></li><li class="chapter-item expanded "><a href="the-state-value.html"><strong aria-hidden="true">2.2.</strong> The State Value</a></li><li class="chapter-item expanded "><a href="the-agent-layer.html"><strong aria-hidden="true">2.3.</strong> The Agent Layer</a></li><li class="chapter-item expanded "><a href="the-connection-layer.html"><strong aria-hidden="true">2.4.</strong> The Connection Layer</a></li><li class="chapter-item expanded "><a href="configuration.html"><strong aria-hidden="true">2.5.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="peer-providers.html"><strong aria-hidden="true">2.6.</strong> Peer Providers</a></li><li class="chapter-item expanded "><a href="data-seeders.html"><strong aria-hidden="true">2.7.</strong> Data Seeders</a></li></ol></li><li class="chapter-item expanded "><a href="walkthrough.html"><strong aria-hidden="true">3.</strong> Walk-through of the Default Layers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-default-state.html"><strong aria-hidden="true">3.1.</strong> The Default State</a></li><li class="chapter-item expanded "><a href="the-default-agent.html"><strong aria-hidden="true">3.2.</strong> The Default Agent</a></li><li class="chapter-item expanded "><a href="the-default-connection.html"><strong aria-hidden="true">3.3.</strong> The Default Connection</a></li><li class="chapter-item expanded "><a href="the-static-peer-provider.html"><strong aria-hidden="true">3.4.</strong> The StaticPeerProvider</a></li><li class="chapter-item expanded "><a href="the-file-data-seeder.html"><strong aria-hidden="true">3.5.</strong> The File DataSeeder</a></li></ol></li><li class="chapter-item expanded "><a href="ideas.html"><strong aria-hidden="true">4.</strong> Ideas for Extending the C19 protocol</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ideas-git-state.html"><strong aria-hidden="true">4.1.</strong> Git State</a></li><li class="chapter-item expanded "><a href="ideas-query-paradigm.html"><strong aria-hidden="true">4.2.</strong> Query Paradigm</a></li><li class="chapter-item expanded "><a href="ideas-redis-backed-state.html"><strong aria-hidden="true">4.3.</strong> Redis Backed State</a></li><li class="chapter-item expanded "><a href="ideas-sql.html"><strong aria-hidden="true">4.4.</strong> SQL Backed State</a></li></ol></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">5.</strong> Contributing</a></li><li class="chapter-item expanded "><a href="license.html"><strong aria-hidden="true">6.</strong> License</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The C19 Protocol / Developer Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#the-c19-protocol--developer-guide" id="the-c19-protocol--developer-guide">The C19 Protocol / Developer Guide</a></h1>
+<p><em>by Chen Fisher</em></p>
+<p>Hello! and welcome to the C19 protocol developer guide. This book is for developers who wish to contribute to the C19 project.
+If you are a user of the C19 protocol and are not looking to develop for the project, please refer to the <a href="https://github.com/c19p/user-guide">User Guide</a> for details and how-to guides.</p>
+<p>If you feel comfortable coding in <code>Rust</code> and would love to add capabilities to the C19 protocol, this book is for you.</p>
+<h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p>Hello again! We're excited to see you here and are hoping you have a productive journey in extending the C19 protocol.</p>
+<p>This book will guide you through the steps for implementing the different layers of the C19 protocol and will show you the details and internals 
+of the project so you could add capabilities that might be missing for you to complete your layer implementations.</p>
+<p><strong>It is imperative</strong> that you first read the [User Guide] and get yourself familiar with being a user of the C19 protocol. 
+This book will repeat some of the information that is presented in the user guide, but it's not a good replacement for the knowledge you will 
+gain by using and reading the user guide.</p>
+<p>So let's begin! Enjoy and have a save journey :)</p>
+<p>[User Guide]: [FIXME: link to user guide]</p>
+<h1><a class="header" href="#concepts" id="concepts">Concepts</a></h1>
+<p>The C19 protocol's main goal is to bring the data local to the application. To reduce the need for an application to handle fetching data.
+It does so by sharing state between different C19 agents.</p>
+<p>The C19 agent is based on three layers: <code>State</code>, <code>Agent</code> and <code>Connection</code>. By using different combinations of different layer implementations, the user 
+can run the protocol in many different ways that will solve for most of their use cases. One the of the major strength of the C19 protocol is being a 
+single solution with different configurations to answer many use cases.</p>
+<p><code>The State</code> is where your data is being held. It allows the other layers to set and get values to and from the state.</p>
+<p><code>The Agent</code> is the entry-point to your application and where you communicate with the C19 agent. It exposes ways for your application 
+to communicate with the C19 agent, set and get values to and from the state.</p>
+<p><code>The Connection</code> is the low-level layer that is responsible for communicating with other C19 agents and exchange the state with them.</p>
+<p>The next chapter will deep dive into the architecture of the project and will show you how everything is connected.</p>
+<h1><a class="header" href="#architecture" id="architecture">Architecture</a></h1>
+<p><img src="architecture.png" alt="Architecture" title="Architecture" /></p>
+<p>As mentioned a few times on the [User Guide], the main components of a C19 agent are its three different layers, each is responsible for a specific task:
+The <code>Agent</code> exposes ways for your application to set and get values to and from the state, the <code>Connection</code> layer is responsible for exchanging the state with 
+other peers and the <code>State</code> is responsible for holding the state itself.</p>
+<p>A user of the C19 protocol has the option to choose any of the different layers to work together. For example, they might choose an Agent that exposes HTTP endpoints 
+for setting and getting values or one that exposes a Websocket connection. The State layer might be one that is backed up by a DB (e.g Redis) or one that holds the state 
+in its own data structure in-memory.</p>
+<p>In this chapter we will explore the different layers in a bit more details and talk about the common parts that hold them together.</p>
+<p>[User Guide]: [FIXME: link to user guide / architecture]</p>
+<h1><a class="header" href="#the-state-layer" id="the-state-layer">The State Layer</a></h1>
+<p>As mentioned, the state layer is responsible for holding and managing the data. It exposes ways for the Connection and Agent layers 
+to set and get values to and from the state.</p>
+<p>When implementing a <code>State</code> layer, one must conform to the <code>State</code> trait.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// The State trait.
+///
+/// Every state implementor must implement this trait. It is first auto-loaded by the configuration
+/// deserializer and then initialized by the library by calling the `init` function. The `init`
+/// function should return a [SafeState] which is then passed to the connection and agent layers.
+#[typetag::serde(tag = &quot;kind&quot;)]
+pub trait State: std::fmt::Debug + Send + Sync + CloneState {
+    /// Initializes the state and returns a state that is safe to be shared across threads.
+    ///
+    /// A state object is already loaded by the configuration. The implementor can use this
+    /// function to add or initialize any other relevant data and then return a SafeState object
+    /// which is shared with the connection and agent layers.
+    fn init(&amp;self) -&gt; SafeState;
+
+    /// Returns the version of the current state.
+    ///
+    /// An implementor can use this function to keep a version for each &quot;state&quot; of the sate. For
+    /// example, the default state implementation sets this value to 
+    /// a random string whenever the state changes. It is then saves that version in a version history which 
+    /// allows for the connection layer to compute diff between two versions. 
+    fn version(&amp;self) -&gt; String;
+
+    /// Sets a value to the state.
+    ///
+    /// There's no assumption about the value itself. It can be anything the implementor wishes.
+    /// The default state implementation, for example, treats this value as a map of key/value
+    /// pairs where the key is a String and the value conforms to a serde_json::Value value.
+    fn set(&amp;self, value: &amp;dyn StateValue) -&gt; Result&lt;(), Box&lt;dyn StdError&gt;&gt;;
+
+    /// Gets the value associated with the specified key.
+    ///
+    /// To allow maximum flexibility, the key itself is a StateValue, which in effect means it can
+    /// be anything desired by the implementor.
+    fn get(&amp;self, key: &amp;dyn StateValue) -&gt; Option&lt;Box&lt;dyn StateValue&gt;&gt;;
+
+    /// Returns the value associated with the specified key or the default if the key was not found 
+    /// in the state.
+    fn get_or(&amp;self, key: &amp;dyn StateValue, default: Box&lt;dyn StateValue&gt;) -&gt; Box&lt;dyn StateValue&gt; {
+        self.get(key).unwrap_or(default)
+    }
+
+    /// Returns the difference between this and the `other` state.
+    fn diff(&amp;self, other: &amp;dyn StateValue) -&gt; Result&lt;Box&lt;dyn StateValue&gt;, Box&lt;dyn StdError&gt;&gt;;
+
+    /// Returns the whole state as a StateValue.
+    ///
+    /// This is helpful when the connection layer wishes to publish the whole state to its peers.
+    fn get_root(&amp;self) -&gt; Option&lt;Box&lt;dyn StateValue&gt;&gt;;
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<p>As you can see from the code snippet of the <code>State</code> trait, a few functions must be implemented.</p>
+<p><code>init</code> - When the state layer is first being loaded by the framework, the <code>init</code> function is called and is expected to return a <code>SafeState</code> instance 
+of the state. A <code>SafeState</code> is just a typedef to the state wrapped in an <code>Arc</code> so it can be safely shared between the different layers. It is 
+up to the implementation to make sure the state is thread-safe. </p>
+<p>The <code>Default</code> state layer implementation uses this function to initialize a few background threads.</p>
+<p><code>version</code> - The <code>version</code> function can be used by a Connection layer to optimize exchanging states with other peers. The <code>Default</code> connection 
+layer implementation does not publish a state that has already been published before. It also uses it when retrieving a state from other peers by 
+specifying the version it has. The <code>Default</code> state layer calculates the version by hashing the keys and timestamps for each key. Each implementation 
+should choose what's best for its use case. Imagine a <code>Git</code> state layer where the version is the <code>HEAD</code>.</p>
+<p><code>set</code> - This is the function used by the other layers to set values into the state. You can see that it accepts a <code>StateValue</code>. You will learn more 
+about the <code>StateValue</code> later on in this chapter, but for now it's important to note that the <code>StateValue</code> can represent any data structure. The connection 
+and agent layers do not know anything about the value. They just pass a vector of bytes to the state and it's up to the state to deserialize it to the proper 
+data structure.</p>
+<p>The <code>Default</code> state assumes the <code>StateValue</code> is a JSON object with a key and a value that contains different fields (ttl, ts and the value itself).</p>
+<p><code>get</code> - This function is called by the other layers to get a value from the state. Same as the <code>set</code> function, it accepts a <code>StateValue</code> that should 
+represent something that the state knows how to deal with. The <code>Default</code> state assumes this is a string that represents the key to be retrieved.</p>
+<p><code>get_or</code> - Is a convenience function that allows to specify a default value if the key being retrieved does not exist.</p>
+<p><code>diff</code> - This function should calculate the diff between this state and the state that is specified as a parameter. The <code>Default</code> connection layer calls 
+this function when it wants to publish the changes since last publish time.</p>
+<p><code>get_root</code> - This function is called by other layers when they need the whole state. The <code>Default</code> connection layer uses it to get the full state to be exchanged 
+with other peers.</p>
+<h2><a class="header" href="#what-to-consider" id="what-to-consider">What to Consider</a></h2>
+<p>When implementing a State layer, we have to consider a few things:</p>
+<h3><a class="header" href="#how-do-we-hold-the-data" id="how-do-we-hold-the-data">How do we hold the data?</a></h3>
+<p>The data is being serialized and deserialized by the state layer. You must first decide what data structure will be used to represent the data.
+The <code>Default</code> state layer holds the data as a HashMap that maps a String key to a Value. The Value is in itself a struct that holds information about 
+the value and the value itself which is a <code>serde_json::Value</code> object.</p>
+<p>Or maybe the data should be held in a local DB like Redis or SQLite? You can then have your state get and set values to that DB instead of holding it yourself.</p>
+<h3><a class="header" href="#what-do-we-expect-from-the-connection-and-agent-layers-when-they-get-and-set-values" id="what-do-we-expect-from-the-connection-and-agent-layers-when-they-get-and-set-values">What do we expect from the Connection and Agent layers when they get and set values?</a></h3>
+<p>Since the user choose whatever combination of layers they want, the state layer cannot assume anything about the Agent and Connection layers. On the other 
+hand it has to expose ways for the agent and connection layers to get and set values to it. As you will learn in a following section, this is done by a struct that 
+implements the <code>StateValue</code> trait. A <code>StateValue</code> is something that can be serialized and deserialized to a byte vector. </p>
+<p>The agent and connection layers pass values to and from the state by form of a byte vector. They do not assume anything about the meaning of this byte vector. It can 
+be a JSON, binary data or any other structure. It is up to the state layer to decide what it should be.</p>
+<h3><a class="header" href="#what-other-properties-of-the-data-we-implement" id="what-other-properties-of-the-data-we-implement">What other properties of the data we implement?</a></h3>
+<p>Except for the value itself that is set by the user, a state layer can decide on other features to be included with a value. The <code>Default</code> state layer, for example, allows 
+setting a TTL for keys.</p>
+<h3><a class="header" href="#how-should-conflicts-be-resolved" id="how-should-conflicts-be-resolved">How should conflicts be resolved?</a></h3>
+<p>Since the C19 protocol is a distributed system, one must consider a case where a C19 agent is being updated by two other peers in parallel, each one setting the same key. One value might 
+be older than the other. It is up to the state layer to resolve the conflict.</p>
+<p>Imagine a case where C19 agent <code>A</code> is holding a key <code>k</code> with a certain value. Another C19 agent <code>B</code> is holding the same key but with an updated value that C19 agent A wasn't yet updated to.
+If they both update a C19 agent C then agent C would have to resolve the conflict of which value for key <code>k</code> it should hold.</p>
+<p>The <code>Default</code> state layer resolves conflicts by considering a timestamp for each key when it was first created. It will always choose the value that has the most recent timestamp.</p>
+<h3><a class="header" href="#thread-safety" id="thread-safety">Thread safety</a></h3>
+<p>The state is being passed around the layers which operates concurrently using different threads and futures. When implementing a <code>State</code> layer, you should make sure your data is 
+being protected from concurrent access. Put in other words, your state is a shared resource.</p>
+<h3><a class="header" href="#performance" id="performance">Performance</a></h3>
+<p>The connection and agent layers trust the state layer to be performant when setting and getting values. If the state layer is slow to respond it might affect the agent when replying to 
+the application or the connection layer when exchanging data with other peers. You should be mindful of the performance when you make decisions on implementation. The <code>Default</code> state layer 
+uses async set operations to make sure it doesn't block readers of the state. This way when the connection layer is setting a full state it got from another peer, the <code>get</code> operations performed 
+by the agent layer will not be blocked.</p>
+<p>The <code>Default</code> state holds the data in a HashMap which is behind a <code>RwLock</code>.</p>
+<h3><a class="header" href="#supporting-data-seeders" id="supporting-data-seeders">Supporting Data Seeders</a></h3>
+<p>Data seeders are a way to seed data into a C19 agent when it first loads. You will learn more about data seeders in a following chapter.
+It is recommended for a state layer to support data seeders.</p>
+<p>The <code>Default</code> state layer loads a data seeder when it first initializes.</p>
+<h1><a class="header" href="#the-state-value" id="the-state-value">The State Value</a></h1>
+<p>Before we can continue to talk about the different layers, we have to talk about the <code>StateValue</code>.</p>
+<p>As mentioned, the <code>StateValue</code> is how the different layers talk to each other. If the <code>Agent</code>, <code>Connection</code> and <code>State</code> 
+cannot assume anything about one another, how can they share the data between them?</p>
+<p>The <code>StateValue</code> is a trait that requires a single function to serialize the data into a byte vector.
+It is up to the state layer to determine how the data should be treated. The agent and connection layers are merely responsible 
+for transferring the data as-is from the consumer to the state. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait StateValue: Send + Sync {
+    fn as_bytes(&amp;self) -&gt; Option&lt;Vec&lt;u8&gt;&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>As you can see, the implementer of a <code>StateValue</code> must implement the <code>as_bytes</code> function that serializes the value into a <code>u8</code> vector.</p>
+<p>Here's how the <code>Default</code> state layer implements the <code>StateValue</code> trait:</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl StateValue for Value {
+    fn as_bytes(&amp;self) -&gt; Option&lt;Vec&lt;u8&gt;&gt; {
+        serde_json::to_vec(self).ok()
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>As you will learn when we walk through the <code>Default</code> state layer implementation, the <code>Value</code> is a struct that holds a single value in the state.
+The value is JSON compatible so the <code>Default</code> state uses the <code>serde_json</code> crate to serialize the value into a <code>u8</code> vector.</p>
+<p>When deserializing a u8 vector into a <code>Value</code> struct, the <code>Default</code> state layer assumes the u8 vector represents a valid JSON data. It's up to 
+the user to make sure they conform to the state requirements.</p>
+<h1><a class="header" href="#the-agent-layer" id="the-agent-layer">The Agent Layer</a></h1>
+<p>The agent layer is the entry point of the application to get and set values to the state. It should expose ways for the application to do that.</p>
+<p>The <code>Default</code> agent layer exposes two HTTP endpoints for setting and getting values.
+We will learn more about the <code>Default</code> agent layer when we walk through the <code>Default</code> layer implementations.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait Agent: std::fmt::Debug + Send + Sync {
+    fn start&lt;'a&gt;(
+        &amp;'a self,
+        state: state::SafeState,
+    ) -&gt; BoxFuture&lt;'a, Result&lt;(), Box&lt;dyn StdError + Send + Sync&gt;&gt;&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>Agent</code> trait requires implementation of a single function: <code>start</code> to allow the agent layer to initialize different threads or futures.
+The <code>Default</code> agent initializes the HTTP server at this point.</p>
+<p>As you can see in the <code>start</code> function signature, it accepts a <code>state</code> instance. This allows the agent layer to communicate with the state.</p>
+<h2><a class="header" href="#what-to-consider-when-implementing-an-agent-layer" id="what-to-consider-when-implementing-an-agent-layer">What to Consider When Implementing an Agent Layer</a></h2>
+<p>The point of interaction for the Agent layer is the state on one side and the application on the other side. There's nothing much expected from 
+the agent layer when it comes to setting and getting values to the state, but much is expected when talking to the application.</p>
+<h3><a class="header" href="#performance-1" id="performance-1">Performance</a></h3>
+<p>The agent layer should be performant when it responds to the application. It is dependent on the state layer for its performance but can and should 
+still do what it can do respond in a timely manner to the application.</p>
+<h3><a class="header" href="#api" id="api">API</a></h3>
+<p>There's no hard constraint when it comes to the API that is exposed to the application. It's up to you to decide what you wish to expose to the application. </p>
+<p>The <code>Default</code> agent layer exposes HTTP endpoints to get and set values. One might implement a persistent connection (WebSocket for example) or add options for the 
+application to be notified immediately when there's a change to the state.</p>
+<h1><a class="header" href="#the-connection-layer" id="the-connection-layer">The Connection Layer</a></h1>
+<p>The connection layer is the low-level layer that is responsible for exchanging the state with other C19 peers.
+This is usually the layer that is doing most of the work. One has to consider different use cases and what should be optimized. For 
+example, if the use case is for big data, then maybe it's not a good idea to exchange the full state on every change.</p>
+<p>The <code>Default</code> connection layer publishes only the changes and does so at a specified interval. It also runs a thread to retrieve the full state 
+from other peers, given that it holds a different version of the state than the connected peer. This should balance the size of the data with the 
+rate of publishing changes.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait Connection: std::fmt::Debug + Send + Sync {
+    fn start&lt;'a&gt;(
+        &amp;'a self,
+        state: state::SafeState,
+    ) -&gt; BoxFuture&lt;'a, Result&lt;(), Box&lt;dyn StdError + Send + Sync&gt;&gt;&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Similar to the <code>Agent</code> trait, the connection trait requires one method: <code>start</code> which accepts the <code>state</code> instance.</p>
+<p>The <code>Default</code> connection layer initializes the publisher and receiver threads in this function.</p>
+<h2><a class="header" href="#what-to-consider-when-implementing-a-connection-layer" id="what-to-consider-when-implementing-a-connection-layer">What to Consider When Implementing a Connection Layer</a></h2>
+<p>The connection layer is usually the most involved layer to implement. It must consider how the state should be exchanged. At what rate, which peers to choose, 
+what type of protocol to use when exchanging the state, etc... It is better first to decide and focus on the use case you are trying to solve.</p>
+<h3><a class="header" href="#choosing-peers" id="choosing-peers">Choosing Peers</a></h3>
+<p>The way the connection layer chooses peers to exchange the state with affects how the data is propagated throughout the system.</p>
+<p>The connection to other peers can be a persistent connection or a stateless connection. The peers chosen can be at random or using a specific formula.</p>
+<p>The <code>Default</code> connection layer chooses peers at random, uses HTTP calls to exchange the state with and disconnects. It does so at a specified interval.</p>
+<h3><a class="header" href="#protocol" id="protocol">Protocol</a></h3>
+<p>When connecting to other peers the state should be exchanged. There are many ways to exchange the data. Depending on the use case you wish to solve, 
+you might want to exchange only the changes since last exchange, or maybe to negotiate a version to be exchanged or maybe just the full state.</p>
+<p>The <code>Default</code> connection layer publishes the changes at a specified interval and pulls the full state at a different interval. When pulling the full state it specifies the 
+current version it has and if it matches the one that the peer holds then nothing is exchanged.</p>
+<h3><a class="header" href="#rate" id="rate">Rate</a></h3>
+<p>Should the connection layer exchange the state on every change in state? Or maybe at a certain interval?
+If the state changes often and the connection layer exchanges the state on every change then you gain an immediate representation of the state across the system but at 
+the expense of resources. Publishing too slow will extend the time the system is unbalanced in terms of the shared state across the system.</p>
+<p>The <code>Default</code> connection layer publishes the state at a specified, configurable interval. This decoupling of exchanging the state with the change of state allows the state 
+to be changed at any rate without affecting the resources for exchanging it.</p>
+<h3><a class="header" href="#supporting-peer-providers" id="supporting-peer-providers">Supporting Peer Providers</a></h3>
+<p>Peer providers allow a connection layer to query for available peers to choose from. A connection layer implementation might choose a different way to get the list of available 
+peers, but it's recommended to support peer providers since it allows for greater extensibility. By decoupling the logic of listing available peers from exchanging data, the user 
+will have more options to choose from. </p>
+<p>The <code>Default</code> connection layer uses a peer provider to get the list of available peers and then chooses a few at random.</p>
+<p>You will learn more about peer providers in a following section.</p>
+<h1><a class="header" href="#configuration" id="configuration">Configuration</a></h1>
+<p>When the <code>main</code> function runs, the first thing it does is to load the configuration.</p>
+<p>The configuration is a YAML file with a main part and a section for each of the layers.</p>
+<pre><code class="language-yaml">version: 0.1
+spec:
+  agent:
+    kind: Default
+    port: 3097
+  state:
+    kind: Default
+    ttl: null
+    purge_interval: 60000
+  connection:
+    kind: Default
+    port: 4097
+    push_interval: 1000
+    pull_interval: 60000
+    r0: 3
+    timeout: 1000
+    peer_provider:
+      kind: K8s
+      selector:
+        c19: getting-started
+      namespace: default
+</code></pre>
+<p>The <code>Config</code> class dynamically initializes each section using <code>serde_yaml</code> and returns a configuration object which holds each section. The <code>kind</code> 
+field for every section tells <code>serde</code> which layer to load. </p>
+<p>When the <code>run</code> function of the project is called, all three layers are initialized with this configuration and then started.</p>
+<p>When implementing one of the layers, your struct might look like this:</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// The default state struct.
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(default)]
+pub struct Default {
+    /// The default TTL (in milliseconds) to use if none is specified when setting a new value.
+    ttl: Option&lt;u64&gt;,
+
+    /// The interval in milliseconds in which to purge expired values.
+    ///
+    /// Default value is 1 minute (60000 milliseconds).
+    /// [FIXME: use Duration instead of explicit milliseconds]
+    purge_interval: u64,
+
+    /// The DataSeeder to use for seeding the data on initialization.
+    ///
+    /// See more about DataSeeders here [FIXME: link to data seeders]
+    data_seeder: Option&lt;Arc&lt;RwLock&lt;Box&lt;dyn DataSeeder&gt;&gt;&gt;&gt;,
+
+    /// The version of the current state.
+    ///
+    /// This is set to a random unique string on every state change.
+    #[serde(skip_serializing, skip_deserializing)]
+    version: Arc&lt;RwLock&lt;String&gt;&gt;,
+
+    /// The SyncSender channel to use for async set operations
+    ///
+    /// When a set operation is being commited to the state, the state 
+    /// will pass the operation to an async handler which will then commit the 
+    /// changes to the state.
+    #[serde(skip_serializing, skip_deserializing)]
+    tx: Option&lt;mpsc::SyncSender&lt;Vec&lt;u8&gt;&gt;&gt;,
+
+    /// The data storage in the form of a Key/Value hashmap.
+    #[serde(skip_serializing, skip_deserializing)]
+    storage: Arc&lt;RwLock&lt;HashMap&lt;String, Box&lt;Value&gt;&gt;&gt;&gt;,
+
+    /// Calculating the version is a bit expensive so we use 
+    /// the dirty flag to lazily calculate the verison on-demand.
+    #[serde(skip_serializing, skip_deserializing)]
+    is_dirty: Arc&lt;RwLock&lt;bool&gt;&gt;,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>If we compare this to how the <code>Default</code> state configuration looks like:</p>
+<pre><code class="language-yaml">  state:
+    kind: Default
+    ttl: null
+    purge_interval: 60000
+</code></pre>
+<p>The <code>ttl</code>, <code>purge_interval</code> and <code>data_seeder</code> fields are loaded but all other fields are skipped. This is because only the <code>ttl</code>, <code>purge_interval</code> and <code>data_seeder</code>
+should be configurable while the other members of the struct are for internal use. You can mark members to be skipped with <code>serde</code>'s skip annotations.</p>
+<h1><a class="header" href="#peer-providers" id="peer-providers">Peer Providers</a></h1>
+<p>When a connection layer needs to select peers to connect to it can use a <code>Peer Provider</code> to get the full list of available peers to choose from.</p>
+<p>The <code>Default</code> connection layer is using a peer provider to get the full list of available peers. </p>
+<h2><a class="header" href="#the-staticpeerprovider" id="the-staticpeerprovider">The StaticPeerProvider</a></h2>
+<p>The <code>StaticPeerProvider</code> is a simple peer provider that allows to statically (manually) configure the list of available peers. This is useful mainly 
+for development and testing your work locally.</p>
+<pre><code class="language-yaml">peer_provider:
+  kind: Static
+  peers:
+    - 192.168.1.2
+    - 192.168.1.3:3000
+</code></pre>
+<p>The static peer provider allows setting a fixed, predefined list of peers. You can configure it to include as many peers as you wish and can also 
+include a different port for each peer. </p>
+<p>It is up to the connection layer to resolve the port to use when connecting to other peers. The <code>Default</code> connection layer uses the <code>target_port</code> and 
+the <code>port</code> configuration fields as a fallback if a specific port is not defined in the list of available peers.</p>
+<p>The <code>K8s</code> peer provider does not even return a port. It only lists the pod IP addresses.</p>
+<p>We will look at the <code>StaticPeerProvider</code> implementation in detail when we walk through the <code>Default</code> layer implementations.</p>
+<h2><a class="header" href="#the-peerprovider-trait" id="the-peerprovider-trait">The PeerProvider Trait</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait PeerProvider: std::fmt::Debug + Send + Sync {
+    /// Initializes the peer provider.
+    fn init(&amp;self) -&gt; Result&lt;(), Box&lt;dyn StdError + Send + Sync&gt;&gt;;
+
+    /// Returns a vector of available peers.
+    fn get(&amp;self) -&gt; Vec&lt;Peer&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>The peer provider is first initialized by the framework. It must expose a <code>get</code> function that is expected to return the list of available peers the connection 
+layer should choose from.</p>
+<h1><a class="header" href="#data-seeders" id="data-seeders">Data Seeders</a></h1>
+<p>When a C19 agent first launches and joins a C19 cluster, it is expected from the connection layer to connect and exchange the state with other, already running agents. 
+This allows a new C19 agent to sync with other peers as it launches.</p>
+<p>Nonetheless there are cases where a user would want to initialize the agent with some data. For that we have data seeders.</p>
+<p>Depending on the <code>State</code> layer implementation, when it first loads it is expected to initialize and load a data seeder. If you choose to implement a <code>State</code> layer, 
+please consider supporting the <code>DataSeeder</code> API so users will have a consistent option to seed your state with data.</p>
+<h2><a class="header" href="#the-file-data-seeder" id="the-file-data-seeder">The <code>File</code> Data Seeder</a></h2>
+<p>The <code>File</code> data seeder will load data from a file. The data in the file must be compatible with the <code>State</code> layer and it's up to the user to make sure it does.</p>
+<p>The <code>Default</code> state layer expects the following format:</p>
+<pre><code class="language-json">{
+  &quot;cat&quot;: {
+    &quot;value&quot;: &quot;garfield&quot;,
+    &quot;ttl&quot;: 3600000
+  },
+  &quot;dog&quot;: {
+    &quot;value&quot;: &quot;snoopy&quot;
+  }
+}
+</code></pre>
+<p>When the <code>Default</code> state layer is being initialized it loads the data seeder, if one is configured:</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn init(&amp;self) -&gt; state::SafeState {
+    ...
+
+    // if we have a data seeder then use it to seed the data
+    this.data_seeder.clone().and_then(|data_seeder| {
+        if let Err(e) =  this.seed(data_seeder) {
+            warn!(&quot;Failed to seed data; ({})&quot;, e);
+        }
+
+        Some(())
+    });
+    
+    ...
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#the-dataseeder-trait" id="the-dataseeder-trait">The <code>DataSeeder</code> Trait</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait DataSeeder: std::fmt::Debug + Send + Sync {
+    fn load(&amp;self) -&gt; Result&lt;Box&lt;dyn StateValue&gt;, Box&lt;dyn StdError&gt;&gt;;
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<p>A very simple trait with a <code>load</code> function that returns a <code>StateValue</code>.</p>
+<p>We will explore the implementation of the <code>File</code> data seeder in detail when we walk through the <code>Defaul</code> layer implementations. </p>
+<h1><a class="header" href="#walk-through-of-the-default-layers" id="walk-through-of-the-default-layers">Walk-through of the Default Layers</a></h1>
+<p>In the following chapter we will walk through the implementation of the <code>Default</code> layers and explore how the <code>StaticPeerProvider</code> and <code>File</code> data seeder 
+look like.</p>
+<p>By the end of this chapter you should be able to implement your own layers.</p>
+<h1><a class="header" href="#the-default-state" id="the-default-state">The Default State</a></h1>
+<p>In this section we will walk through the implementation of the <code>Default</code> state layer. By the end of this chapter you should be able to implement 
+your own state layer.</p>
+<h2><a class="header" href="#behavior" id="behavior">Behavior</a></h2>
+<p>Before diving into the code, let's first try to describe the state behavior.</p>
+<h3><a class="header" href="#the-store" id="the-store">The Store</a></h3>
+<p>The <code>Default</code> state layer holds a HashMap of <code>String</code> keys to <code>Values</code>.
+A value is a structure that holds an optional TTL, a timestamp and the value itself which is a <code>serde_json::Value</code>.</p>
+<p>When the state layer receives a <code>StateValue</code> to be set, it will deserialize it into a HashMap and will merge it into its own HashMap.</p>
+<p>Put in other words, the <code>Default</code> state layer expects the value to be a JSON object with an optional TTL, a timestamp and a value which can be 
+anything JSON compatible.</p>
+<h3><a class="header" href="#resolving-conflicts" id="resolving-conflicts">Resolving Conflicts</a></h3>
+<p>To resolve conflicts in case two different peers hold different versions of the same key, the state layer uses a timestamp. The timestamp is set 
+when a key is being committed to the state. This means that a newer timestamp will always &quot;win&quot; the conflict.</p>
+<h2><a class="header" href="#the-code" id="the-code">The Code</a></h2>
+<p>Let's explore the code.</p>
+<h3><a class="header" href="#the-default-struct" id="the-default-struct">The <code>Default</code> struct</a></h3>
+<p>This struct holds the configuration of the state and implements the <code>State</code> trait.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Default {
+    /// The default TTL (in milliseconds) to use if none is specified when setting a new value.
+    ttl: Option&lt;u64&gt;,
+
+    /// The interval in milliseconds in which to purge expired values.
+    ///
+    /// Default value is 1 minute (60000 milliseconds).
+    purge_interval: u64,
+
+    /// The DataSeeder to use for seeding the data on initialization.
+    data_seeder: Option&lt;Arc&lt;RwLock&lt;Box&lt;dyn DataSeeder&gt;&gt;&gt;&gt;,
+
+    /// The version of the current state.
+    ///
+    /// This is set to a random unique string on every state change.
+    #[serde(skip_serializing, skip_deserializing)]
+    version: Arc&lt;RwLock&lt;String&gt;&gt;,
+
+    /// The SyncSender channel to use for async set operations
+    ///
+    /// When a set operation is being commited to the state, the state 
+    /// will pass the operation to an async handler which will then commit the 
+    /// changes to the state.
+    #[serde(skip_serializing, skip_deserializing)]
+    tx: Option&lt;mpsc::SyncSender&lt;Vec&lt;u8&gt;&gt;&gt;,
+
+    /// The data storage in the form of a Key/Value hashmap.
+    #[serde(skip_serializing, skip_deserializing)]
+    storage: Arc&lt;RwLock&lt;HashMap&lt;String, Box&lt;Value&gt;&gt;&gt;&gt;,
+
+    /// Calculating the version is a bit expensive so we use 
+    /// the dirty flag to lazily calculate the verison on-demand.
+    #[serde(skip_serializing, skip_deserializing)]
+    is_dirty: Arc&lt;RwLock&lt;bool&gt;&gt;,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>ttl</code> - The <code>Default</code> state layer offers an option to set a default TTL value for keys that do not specify an explicit TTL.</p>
+<p><code>purge_interval</code> - The state will never return expired keys but will hold them in memory until purged at a certain interval for the sake of performance.</p>
+<p><code>data_seeder</code> - The state supports data seeders and will load the data when it first initializes.</p>
+<p><code>version</code> - The state calculates the state version by combining (xor) the hash of all the keys and their respective timestamps. Note that the version is 
+behind a lock to conform to the thread-safety requirement.</p>
+<p><code>tx</code> - Setting a large value to the state might be CPU intensive operation. The state will do this in the background on a dedicated thread. This field 
+is used for writing new <code>set</code> operations.</p>
+<p><code>storage</code> - The HashMap to hold the data. Note that the HashMap is behind a lock since we have to make sure our state is thread-safe.</p>
+<p><code>is_dirty</code> - For performance reasons, the state will use this flag to do some operations in a lazy manner. Calculating the state version, for example, is a costly 
+operation. We want to calculate the version only on-demand and when the data has changed.</p>
+<p>As you will learn in a following chapter, a few of the fields above are loaded by the configuration component of the C19 agent.
+Specifically, the ttl, purge_interval and the data_seeder are configured by the user.</p>
+<h3><a class="header" href="#the-value" id="the-value">The Value</a></h3>
+<p>The <code>Value</code> struct describes the values that we hold in our state.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Value {
+    /// A serde_json::Value to hold any value that can be serialized into JSON format.
+    value: serde_json::Value,
+
+    /// The timestamp when this value was first created.
+    #[serde(default = &quot;epoch&quot;)]
+    ts: u64,
+
+    /// An optional TTL (resolved to an absolute epoch time) when this value will be expired.
+    ttl: Option&lt;u64&gt;,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>value</code> - A <code>serde_json::Value</code> to hold the value itself.</p>
+<p><code>ts</code> - A timestamp representing the time when the key was first created.</p>
+<p><code>ttl</code> - An optional TTL for this value.</p>
+<h3><a class="header" href="#implementing-the-state-trait" id="implementing-the-state-trait">Implementing the <code>State</code> Trait</a></h3>
+<p>Let's explore a few of the more interesting functions of the <code>State</code> trait.</p>
+<h3><a class="header" href="#init" id="init">Init</a></h3>
+<p>To conform to the <code>State</code> trait we first have to implement the <code>init</code> function. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    fn init(&amp;self) -&gt; SafeState;
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>init</code> function is expected to return a <code>SafeState</code> which is a type definition of an <code>Arc</code>.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    fn init(&amp;self) -&gt; state::SafeState {
+        let mut this = self.clone();
+
+        // if we have a data seeder then use it to seed the data
+        this.data_seeder.clone().and_then(|data_seeder| {
+            info!(&quot;Seeding data...&quot;);
+            if let Err(e) =  this.seed(data_seeder) {
+                warn!(&quot;Failed to seed data; ({})&quot;, e);
+            }
+
+            Some(())
+        });
+
+        // start the async_set consumer thread
+        let (tx, rx) = mpsc::sync_channel(MAX_SET_OPS);
+        this.tx = Some(tx);
+
+        let this = Arc::new(this);
+        let t = this.clone();
+        tokio::task::spawn_blocking(move || {async_set(t, rx)});
+      
+        // start the purger thread
+        tokio::spawn(purge(this.clone()));
+
+        this
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>Default</code> state first loads a data seeder, if one is provided, and the goes on to initialize some internal threads. One of async set operations and one for purging expired 
+values.</p>
+<p>In the end it returns an <code>Arc::new</code> that wraps self.</p>
+<h3><a class="header" href="#get" id="get">Get</a></h3>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    fn get(&amp;self, key: &amp;dyn StateValue) -&gt; Option&lt;Box&lt;dyn StateValue&gt;&gt; {
+        let key: String = String::from_utf8(key.as_bytes().unwrap_or(Vec::new())).unwrap();
+
+        let storage = self.storage.read().unwrap().clone();
+        storage
+            .get(&amp;key)
+            .cloned()
+            .filter(|v| !v.is_expired())
+            .map(|v| v.into())
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>The state first deserialize the key to a String. It is up to the caller to make sure the key is a <code>StateValue</code> that represents a <code>String</code>.</p>
+<p>Then, the state unlocks the storage for reading (recall that the storage is behind a read lock) looks up the key and filters it out if it has expired.</p>
+<h3><a class="header" href="#set" id="set">Set</a></h3>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    fn set(&amp;self, map: &amp;HashMap&lt;String, Box&lt;Value&gt;&gt;) {
+        let map = map.clone();
+        let mut is_dirty = false;
+
+        // merge the maps
+        let mut storage = self.storage.write().unwrap();
+        for (key, mut right) in map {
+            if right.is_expired() {
+                continue;
+            }
+
+            if self.ttl.is_some() &amp;&amp; right.ttl.is_none() {
+                right.ttl = self.ttl;
+            }
+
+            storage.entry(key)
+                .and_modify(|v| {
+                    if v.ts &lt; right.ts {
+                        *v = right.clone().into();
+                        is_dirty = true;
+                    }})
+            .or_insert({
+                is_dirty = true;
+                right.into()
+            }); 
+        }
+
+        *self.is_dirty.write().unwrap() = is_dirty;
+    }
+
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>Default</code> state layer implements async set operations by running a dedicated thread that consumes a channel. The <code>set</code> function above is called by the async set
+operation after it has deserialized the <code>StateValue</code> into a <code>HashMap</code> to make the actual set.</p>
+<p>Here, the state merges the maps while marking the state as <code>dirty</code>. It does so to allow <code>lazy</code> operations to be performed only if the state has changed.</p>
+<h3><a class="header" href="#implementing-the-statevalue" id="implementing-the-statevalue">Implementing the <code>StateValue</code></a></h3>
+<p>To implement a <code>StateValue</code> we have to implement a deserialization function that will deserialize our value into a vector of <code>u8</code>.</p>
+<h4><a class="header" href="#statevalue-trait" id="statevalue-trait"><code>StateValue</code> Trait</a></h4>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait StateValue: Send + Sync {
+    fn as_bytes(&amp;self) -&gt; Option&lt;Vec&lt;u8&gt;&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h3><a class="header" href="#value-implementing-the-statevalue-trait" id="value-implementing-the-statevalue-trait"><code>Value</code> implementing the <code>StateValue</code> Trait</a></h3>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl StateValue for Value {
+    fn as_bytes(&amp;self) -&gt; Option&lt;Vec&lt;u8&gt;&gt; {
+        serde_json::to_vec(self).ok()
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>This way the connection and agent layers can pass a <code>StateValue</code> around without needing to know anything about it.</p>
+<h1><a class="header" href="#the-default-agent" id="the-default-agent">The Default Agent</a></h1>
+<p>The <code>Default</code> agent layer implementation allows an application to get and set values to the state through HTTP calls.</p>
+<p>It exposes two endpoints: <code>GET</code> and <code>PUT</code> and does not assume anything about the payload itself. It is up to the application (user) 
+to make sure the payload conforms to the chosen <code>State</code> layer.</p>
+<p>Any <code>Agent</code> implementation should choose its own way of exposing ways to get and set values to the state.</p>
+<h2><a class="header" href="#behavior-1" id="behavior-1">Behavior</a></h2>
+<p>The behavior of the <code>Default</code> agent is straight forward. It runs a HTTP server with two handlers for getting and setting values.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>async fn handler(state: state::SafeState, req: Request&lt;Body&gt;) -&gt; Result&lt;Response&lt;Body&gt;&gt; {
+    Ok(match req.method() {
+        &amp;Method::GET =&gt; get_handler(state, &amp;req),
+        &amp;Method::PUT =&gt; set_handler(state, req).await.unwrap(),
+        _ =&gt; Responses::not_found(None),
+    })
+}
+
+impl Default {
+    async fn server(&amp;self, state: state::SafeState) -&gt; Result&lt;()&gt; {
+        let service = make_service_fn(move |_| {
+            let state = state.clone();
+            async move {
+                Ok::&lt;_, Box&lt;dyn StdError + Send + Sync&gt;&gt;(service_fn(move |req| {
+                    handler(state.clone(), req)
+                }))
+            }
+        });
+
+        let server = Server::try_bind(&amp;([0, 0, 0, 0], self.port).into())?;
+        server.serve(service).await?;
+
+        Ok(())
+    }
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#the-agent-trait" id="the-agent-trait">The <code>Agent</code> Trait</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait Agent: std::fmt::Debug + Send + Sync {
+    fn start&lt;'a&gt;(
+        &amp;'a self,
+        state: state::SafeState,
+    ) -&gt; BoxFuture&lt;'a, Result&lt;(), Box&lt;dyn StdError + Send + Sync&gt;&gt;&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>Default</code> agent layer uses the <code>start</code> function to initialize and run the HTTP server.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn start&lt;'a&gt;(&amp;'a self, state: state::SafeState) -&gt; BoxFuture&lt;'a, Result&lt;()&gt;&gt; {
+    self.server(state).map_err(|e| e.into()).boxed()
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h1><a class="header" href="#the-default-connection" id="the-default-connection">The Default Connection</a></h1>
+<p>The connection layer is responsible for exchanging the state with other peers. As mentioned before, this is probably the more involved layer to implement. 
+It is involved because one has to decide how the state should be exchanged and there are usually trade-offs to make. Exchanging to fast will be resource intensive, 
+while exchanging to slow will extend the imbalance of the shared state. </p>
+<h2><a class="header" href="#behavior-2" id="behavior-2">Behavior</a></h2>
+<p>The <code>Default</code> connection layer uses two threads to exchange the state with other peers: The publisher and receiver threads.</p>
+<p>The <code>publisher</code> thread publishes the only the changes made since the last publish time. 
+The <code>receiver</code> thread will connect and pull the full state from a peer if they both hold a different version of the state.</p>
+<p>Apart from the two threads for exchanging the state, the connection layer runs a HTTP server to allow other peers to connect and exchange the state with it.</p>
+<p>It exposes two endpoints: one for retrieving the state if the other for setting the state.</p>
+<h2><a class="header" href="#get-1" id="get-1">Get</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn get_handler(state: state::SafeState, req: &amp;Request&lt;Body&gt;) -&gt; Response&lt;Body&gt; {
+    let versions_match = req.uri().path().split('/').last().and_then(|version| {
+        trace!(&quot;get_handler / version {} ({})&quot;, version, state.version());
+
+        (version.is_empty() || version != state.version()).into()
+    }).unwrap();
+
+
+    if versions_match {
+        Responses::ok(state.get_root().unwrap().into())
+    } else {
+        Responses::no_content()
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Here, the <code>Default</code> connection layer compares the version it holds against the version reported by the connected peer. If the versions do not match then 
+it will return the full state. Otherwise nothing will be returned.</p>
+<h2><a class="header" href="#set-1" id="set-1">Set</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn set_handler&lt;'a&gt;(
+    state: state::SafeState,
+    req: Request&lt;Body&gt;,
+) -&gt; impl FutureExt&lt;Output = Result&lt;Response&lt;Body&gt;&gt;&gt; + 'a {
+    hyper::body::to_bytes(req.into_body())
+        .and_then(move |body| async move {
+            let body = &amp;body as &amp;dyn state::StateValue;
+            let result = state.set(body);
+
+            Ok(match result {
+                Ok(_) =&gt; Responses::no_content(),
+                _ =&gt; Responses::unprocessable(None),
+            })
+        })
+        .map_err(|e| e.into())
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>Default</code> connection layer exposes this function to allow other peers to publish their state. It will accept the state and set it to the <code>State</code> layer.</p>
+<h2><a class="header" href="#the-receiver-thread" id="the-receiver-thread">The Receiver Thread</a></h2>
+<p>The receiver thread connects to other peers and sends a HTTP <code>GET</code> request while specifying the version it holds. 
+It uses a peer provider to get the full list of available peers and randomly chooses a few of them.</p>
+<p>It them loops through the responses and sets them to the state.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    async fn receiver(&amp;self, state: state::SafeState) -&gt; Result&lt;()&gt; {
+        loop {
+            // sample r0 peers
+            let peers = self.peer_provider.get();
+            let peers = peers.into_iter().sample(self.r0);
+          
+            let res = stream::iter(peers)
+                .map(|peer| {
+                    let url = format!(&quot;http://{}:{}/{}&quot;, peer.ip(), peer.port().unwrap_or(self.target_port.unwrap_or(self.port)), state.version());
+                    let timeout = self.timeout;
+
+                    tokio::spawn(async move {
+                        trace!(&quot;Retreiving from {}&quot;, url);
+                        let client = Client::builder()
+                            .connect_timeout(Duration::from_millis(timeout))
+                            .build().unwrap();
+
+                        let result = client
+                            .get(&amp;url.to_string())
+                            .send()
+                            .await?
+                            .bytes()
+                            .await;
+
+                        result
+                    })
+                })
+                .buffer_unordered(4);
+
+            res.collect::&lt;Vec&lt;_&gt;&gt;().await.iter().for_each(|result| {
+                if let Ok(Ok(result)) = result {
+                    if let Err(e) = state.set(result as &amp;dyn state::StateValue) {
+                        warn!(&quot;Failed to set peer response to state; {}&quot;, e);
+                    }
+                }
+            });
+
+            time::delay_for(time::Duration::from_millis(self.pull_interval)).await;
+        }
+    }
+
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#the-publisher-thread" id="the-publisher-thread">The Publisher Thread</a></h2>
+<p>The publisher thread connects to other peers and publishes the changes since last publish time. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    async fn publisher(&amp;self, state: state::SafeState) -&gt; Result&lt;()&gt; {
+        let mut last_published: Vec&lt;u8&gt; = Vec::&lt;u8&gt;::default();
+        let mut last_published_version = String::default();
+
+        loop {
+            if last_published_version == state.version() {
+                time::delay_for(time::Duration::from_millis(self.push_interval)).await;
+                continue;
+            }
+
+            let last = last_published.clone();
+            let state_clone = state.clone();
+            let res = tokio::task::spawn_blocking(move || {
+                // get the recent state
+                let root = state_clone.get_root().unwrap().as_bytes().unwrap();
+
+                if root == last {
+                    return None;
+                }
+
+                let state_to_publish = state_clone.diff(&amp;last).and_then(|diff| {
+                    Ok(diff.as_bytes().unwrap())
+                }).or::&lt;Vec&lt;u8&gt;&gt;(Ok(root.clone())).unwrap();
+
+                Some((state_to_publish, root))
+            }).await?;
+
+            if res.is_none() {
+                time::delay_for(time::Duration::from_millis(self.push_interval)).await;
+                continue;
+            }
+
+            let (state_to_publish, last) = res.unwrap();
+            last_published = last;
+            last_published_version = state.version();
+
+            // sample r0 peers
+            let peers = self.peer_provider.get();
+            let peers = peers.into_iter().sample(self.r0);
+
+            // start sending to peers in parallel
+            let res = stream::iter(peers)
+                .map(|peer| {
+                    let state_to_publish = state_to_publish.clone();
+                    let url = format!(&quot;http://{}:{}/&quot;, peer.ip(), peer.port().unwrap_or(self.target_port.unwrap_or(self.port)));
+                    let timeout = self.timeout;
+
+                    tokio::spawn(async move {
+                        trace!(&quot;Sending to {}&quot;, url);
+                        let client = Client::builder()
+                            .connect_timeout(Duration::from_millis(timeout))
+                            .build().unwrap();
+
+                        let result = client
+                            .put(&amp;url.to_string())
+                            .body(state_to_publish)
+                            .send()
+                            .await?
+                            .bytes()
+                            .await;
+
+                        result
+                    })
+                })
+                .buffer_unordered(4);
+
+            res.collect::&lt;Vec&lt;_&gt;&gt;().await.iter().for_each(|result| {
+                if let Ok(Ok(result)) = result {
+                    if let Err(e) = state.set(result as &amp;dyn state::StateValue) {
+                        warn!(&quot;Failed to set peer response to state; {}&quot;, e);
+                    }
+                }
+            });
+
+            time::delay_for(time::Duration::from_millis(self.push_interval)).await;
+        }
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>[FIXME: no need for the publish state to set the responses to the state since all responses are expected to be no-content]</p>
+<h1><a class="header" href="#the-staticpeerprovider-1" id="the-staticpeerprovider-1">The StaticPeerProvider</a></h1>
+<p>A peer provider is responsible for returning a list of available peers for the connection layer to choose from.</p>
+<p>The static peer provider allows configuring a predefined, static list of peer endpoints.</p>
+<h2><a class="header" href="#the-peer-provider-trait" id="the-peer-provider-trait">The Peer Provider Trait</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait PeerProvider: std::fmt::Debug + Send + Sync {
+    /// Initializes the peer provider.
+    fn init(&amp;self) -&gt; Result&lt;(), Box&lt;dyn StdError + Send + Sync&gt;&gt;;
+
+    /// Returns a vector of available peers.
+    fn get(&amp;self) -&gt; Vec&lt;Peer&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>As seen in the architecture chapter, the <code>PeerProvider</code> trait requires a peer provider to implement a <code>get</code> function that returns a vector of peers.</p>
+<p>A peer is defined as follows:</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub enum Peer {
+    Ipv4Addr(Ipv4Addr),
+    SocketAddrV4(SocketAddrV4),
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>A peer is an enum with either an Ipv4 or a full socket address. The reason behind this is to allow a peer provider to return a vector of ip address or 
+ip:port.</p>
+<h2><a class="header" href="#the-static-peer-provider" id="the-static-peer-provider">The Static Peer Provider</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[derive(Serialize, Deserialize, Debug)]
+pub struct Static {
+    peers: Vec&lt;Peer&gt;,
+}
+
+#[typetag::serde]
+impl PeerProvider for Static {
+    fn init(&amp;self) -&gt; Result&lt;()&gt; {
+        Ok(())
+    }
+
+    fn get(&amp;self) -&gt; Vec&lt;Peer&gt; {
+        self.peers.clone()
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>Static</code> struct is loaded by the configuration module and is expecting a vector of <code>ip</code> or <code>ip:port</code> values.</p>
+<pre><code class="language-yaml">peer_provider:
+  kind: Static
+  peers:
+    - 192.168.1.2
+    - 192.168.1.3:3000
+</code></pre>
+<p>The <code>get</code> function implementation just returns that list.</p>
+<p>Feel free to browse the <code>K8s</code> peer provider code to see a more complex implementation for a peer provider.</p>
+<h1><a class="header" href="#the-file-dataseeder" id="the-file-dataseeder">The File DataSeeder</a></h1>
+<p>A data seeder is responsible for seeding data into a state once loaded.</p>
+<p>The <code>File</code> data seeder loads the content of a file and set it to the state. It is agnostic to the format of the file. It is up to the user 
+to make sure the format of the file complies to the <code>State</code> requirements.</p>
+<p>The <code>Default</code> state, for example, requires the data to be of a certain <code>JSON</code> format:</p>
+<pre><code class="language-json">{
+  &quot;cat&quot;: {
+    &quot;value&quot;: &quot;garfield&quot;,
+    &quot;ttl&quot;: 3600000
+  },
+  &quot;dog&quot;: {
+    &quot;value&quot;: &quot;snoopy&quot;
+  }
+}
+</code></pre>
+<h2><a class="header" href="#the-dataseeder-trait-1" id="the-dataseeder-trait-1">The DataSeeder Trait</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait DataSeeder: std::fmt::Debug + Send + Sync {
+    fn load(&amp;self) -&gt; Result&lt;Box&lt;dyn StateValue&gt;, Box&lt;dyn StdError&gt;&gt;;
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<p>We are required to implement the <code>load</code> function and return anything that implements the <code>StateValue</code> trait. If you recall, the <code>StateValue</code> trait 
+requires us to implement a function that deserializes our value into a <code>u8</code> vector.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait StateValue: Send + Sync {
+    fn as_bytes(&amp;self) -&gt; Option&lt;Vec&lt;u8&gt;&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#the-file-dataseeder-1" id="the-file-dataseeder-1">The File DataSeeder</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[derive(Serialize, Deserialize, Debug)]
+pub struct File {
+    filename: String,
+}
+
+#[typetag::serde]
+impl data_seeder::DataSeeder for File {
+    fn load(&amp;self) -&gt; Result&lt;Box&lt;dyn StateValue&gt;&gt; {
+        let data: Box&lt;dyn StateValue&gt; = Box::new(fs::read(&amp;self.filename)?);
+        Ok(data)
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>File</code> data seeder expects a <code>filename</code> to be specified in its configuration. When the <code>load</code> function is called it will read the file and return the data, 
+which complies with the <code>StateValue</code> trait.</p>
+<h1><a class="header" href="#ideas-for-extending-the-c19-protocol" id="ideas-for-extending-the-c19-protocol">Ideas for Extending the C19 protocol</a></h1>
+<p>There are many ways to extend the C19 protocol. As you've learned from both the user guide and the developer guide, 
+the power of the C19 protocol lies withing it's layers and the many ways to configure and combine different layers together.</p>
+<p>The more layers implemented, the more powerful the project will be and any user will be able to find the configuration to answer their 
+use case.</p>
+<p>In this section we describe a few ideas for extending the different layers. Hopefully you will find this useful and decide on implementing a layer of your own.</p>
+<h1><a class="header" href="#git-state" id="git-state">Git State</a></h1>
+<p>Since C19 is a distributed system, there might be a situation where a value is being set to the state concurrently from different sources.
+A <code>State</code> must resolve conflicts and decide which value to take if the values are conflicting.</p>
+<p>Imagine a case where two C19 agents hold a different version of a value. One has been updated while the other has not yet. Now imagine a third agent 
+exchanging data with those two agents. It will get the value from both of them and will have to decide which value to commit.</p>
+<p>The <code>Default</code> state implementation resolve conflicts by using a simple timestamp. The timestamp is set when a value is first created at the source.</p>
+<p><code>Git</code> has its own way of resolving conflicts and it might be a good candidate for a C19 state.</p>
+<h2><a class="header" href="#state" id="state">State</a></h2>
+<p>The <code>State</code> can set and get values by using git commit operations and conflicts can be automatically resolved. If a conflict cannot be automatically resolved 
+there's an option to prefer &quot;theirs&quot; or &quot;ours&quot; (<a href="https://git-scm.com/docs/git-pull#Documentation/git-pull.txt-ours">See here for Git documentation</a> of the <code>pull</code> command)</p>
+<h2><a class="header" href="#connection" id="connection">Connection</a></h2>
+<p>The <code>Connection</code> layer would have to support a <a href="https://git-scm.com/book/en/v2/Git-Internals-Transfer-Protocols">Git protocol</a>.</p>
+<h2><a class="header" href="#agent" id="agent">Agent</a></h2>
+<p>The <code>Agent</code> can probably be any agent without specific need for a <code>Git</code> knowledge. The <code>Default</code> agent implementation offers a way to get and set values to the state 
+and it doesn't need to know anything about the fact that the keys are stored as <code>Git</code> repositories.</p>
+<p>A <code>Git</code> specific agent can be implemented to allow Git specific commands to be sent from an application or to allow commit of files and not only keys and values.</p>
+<h1><a class="header" href="#query-paradigm" id="query-paradigm">Query Paradigm</a></h1>
+<p>One of the benefits of the C19 protocol is the fact that it brings the data locally to the application. But if the data is too large to be exchanged in full then different 
+solutions might come handy. One of the options is the Query Paradigm. </p>
+<p>We call it the <code>Query Paradigm</code> since it's a paradigm change from how the <code>Default</code> layers are implemented today. The <code>Query Paradigm</code> works like this:</p>
+<p>When an application queries its local C19 agent, if the C19 agent doesn't have this data available it will send a query to a set of other C19 agents. Those 
+agents will query other C19 agents if they don't hold the data themselves and will eventually return a results. The result can be cached to the local C19 agent 
+and therefore create an on-demand data distribution where each C19 agent holds the data that is required by the application.</p>
+<p>The rate in which a query propagates throughout the system can vary depending on a number of different parameters. For example, how many C19 agents are being queried 
+on each cycle.</p>
+<h2><a class="header" href="#the-layers" id="the-layers">The Layers</a></h2>
+<p>There are different ways to go about implementing this, but it seems like any solution would require introducing new APIs between the layers. For example, we 
+would want the <code>Connection</code> layer to be aware when the <code>Agent</code> layer queries the <code>State</code> for a key and that key is not found. The <code>Agent</code> layer would have to 
+&quot;wait&quot; for the query to be resolved by getting a signal from the <code>State</code> that the key was just committed. Consider the following scenario:</p>
+<ol>
+<li>The application queries the local C19 agent</li>
+<li>The <code>Agent</code> layer tries to get the value from the state</li>
+<li>The values does not exist so the <code>Agent</code> layer subscribes for a notification for this key</li>
+<li>The <code>Connection</code> layer gets a signal from the state that a key is missing and sends a query throughout the system</li>
+<li>When it gets a response it will commit the key to the state (or either commit a &quot;not found&quot; signal)</li>
+<li>The <code>State</code> layer will have to notify the <code>Agent</code> that the key was just committed</li>
+<li>The <code>Agent</code> will return a response to the application</li>
+</ol>
+<p>This can be done with an async API to the application or a sync one.</p>
+<h1><a class="header" href="#redis-backed-state" id="redis-backed-state">Redis Backed State</a></h1>
+<p>The <code>Default</code> state implementation holds the data in-memory using a <code>HashMap</code>, but in fact anything can be used to store the values. <code>Redis</code> is a 
+great option to store key/value pairs and to allow different ways of accessing the data with its special data structure commands.</p>
+<h2><a class="header" href="#state-1" id="state-1">State</a></h2>
+<p>In this case the <code>State</code> would store the values in <code>Redis</code>, the <code>Connection</code> layer would have to implement a reasonable way of exchanging the 
+data either by exchanging changes or the whole Redis <code>RDB</code> file and the <code>Agent</code> can be either agnostic to the fact that the values are 
+stored in <code>Redis</code> or by exposing <code>Redis</code> commands through HTTP to allow an application to make actual calls to <code>Redis</code>.</p>
+<p>The <code>State</code> would store values in <code>Redis</code>. Since the <code>StateValue</code> can represent anything, the <code>State</code> can treat it as a command protocol to pass 
+to <code>Redis</code>. For example, the <code>StateValue</code> can be a <code>JSON</code> object that describes a <code>Redis</code> command.</p>
+<h2><a class="header" href="#connection-1" id="connection-1">Connection</a></h2>
+<p>The <code>Connection</code> layer would have to implement a reasonable way of exchanging the <code>Redis</code> data with other peers. Either be exchanging changes only, 
+or by exchanging the full <code>Redis RDB</code> file.</p>
+<h2><a class="header" href="#agent-1" id="agent-1">Agent</a></h2>
+<p>The <code>Agent</code> can actually be agnostic to the fact that the state is stored in <code>Redis</code>. The <code>Default</code> agent, for example, does not know anything about 
+the payload of the data so the data can be a <code>JSON</code> object that represents a command to <code>Redis</code> or it can be a normal key value object to be stored 
+in <code>Redis</code> without being to specific to the fact that it's <code>Redis</code>.</p>
+<h1><a class="header" href="#sql-backed-state" id="sql-backed-state">SQL Backed State</a></h1>
+<p>The [Redis] use-case shows how we can have <code>Redis</code> as the backend of the <code>State</code>. While <code>Redis</code> is an excellent choice, it doesn't have to be <code>Redis</code> 
+and can actually be anything that can hold data.</p>
+<p>Imagine <code>SQLite</code> as the backend of the <code>State</code>. This means that the data can be stored in a relational database and the payload of the data can 
+be a JSON object that represents a rows in the database or a set of rows. Of course if doesn't have to be JSON and can be any format you see fit.</p>
+<p>As with the <code>Redis</code> use-case, the <code>Agent</code> can be agnostic to the fact that the backend is an SQL database so the <code>Default</code> agent can be used.</p>
+<h1><a class="header" href="#contributing-guide" id="contributing-guide">Contributing Guide</a></h1>
+<p>Thank you for taking the time to contribute and improve and C19 protocol! We appreciate your time and effort.</p>
+<h2><a class="header" href="#the-books" id="the-books">The Books</a></h2>
+<p>We care and invest a lot on documentation. When contributing it is important to go over the user guide and developer guide 
+and get yourself familiar with the architecture of the project.</p>
+<ul>
+<li><a href="()">User Guide</a></li>
+<li><a href="()">Developer Guide</a></li>
+</ul>
+<h2><a class="header" href="#github-issues" id="github-issues">Github Issues</a></h2>
+<p>Everything should be handled in Github Issues. Bugs, PRs, discussions, etc...</p>
+<p>The proper issue tags will be assigned by the reviewer.</p>
+<h2><a class="header" href="#what-to-contribute" id="what-to-contribute">What to Contribute</a></h2>
+<p>Every contribution is appreciated. The following is a list of recommendations that might help you focus on the areas that have the most impact:</p>
+<ul>
+<li>Bugs and Stability</li>
+<li>Different Layer Implementations</li>
+<li>Tests</li>
+<li>Performance</li>
+<li>Metrics</li>
+<li>Easy of Use</li>
+<li>Documentation</li>
+<li>Roadmap</li>
+</ul>
+<p>[FIXME: links to books]</p>
+<h1><a class="header" href="#license" id="license">License</a></h1>
+<p>Copyright (c) 2020, Chen Fisher.
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ol>
+<li>
+<p>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</p>
+</li>
+<li>
+<p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p>
+</li>
+<li>
+<p>Neither the name of the copyright holder nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.</p>
+</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

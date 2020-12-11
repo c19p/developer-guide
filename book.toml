@@ -1,6 +1,0 @@
-[book]
-authors = ["Chen Fisher"]
-language = "en"
-multilingual = false
-src = "src"
-title = "The C19 Protocol / Developer Guide"

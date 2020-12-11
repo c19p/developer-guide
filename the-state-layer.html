@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The State Layer - The C19 Protocol / Developer Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The C19 Protocol / Developer Guide</a></li><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="concepts.html"><strong aria-hidden="true">1.</strong> Concepts</a></li><li class="chapter-item expanded "><a href="architecture.html"><strong aria-hidden="true">2.</strong> Architecture</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-state-layer.html" class="active"><strong aria-hidden="true">2.1.</strong> The State Layer</a></li><li class="chapter-item expanded "><a href="the-state-value.html"><strong aria-hidden="true">2.2.</strong> The State Value</a></li><li class="chapter-item expanded "><a href="the-agent-layer.html"><strong aria-hidden="true">2.3.</strong> The Agent Layer</a></li><li class="chapter-item expanded "><a href="the-connection-layer.html"><strong aria-hidden="true">2.4.</strong> The Connection Layer</a></li><li class="chapter-item expanded "><a href="configuration.html"><strong aria-hidden="true">2.5.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="peer-providers.html"><strong aria-hidden="true">2.6.</strong> Peer Providers</a></li><li class="chapter-item expanded "><a href="data-seeders.html"><strong aria-hidden="true">2.7.</strong> Data Seeders</a></li></ol></li><li class="chapter-item expanded "><a href="walkthrough.html"><strong aria-hidden="true">3.</strong> Walk-through of the Default Layers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-default-state.html"><strong aria-hidden="true">3.1.</strong> The Default State</a></li><li class="chapter-item expanded "><a href="the-default-agent.html"><strong aria-hidden="true">3.2.</strong> The Default Agent</a></li><li class="chapter-item expanded "><a href="the-default-connection.html"><strong aria-hidden="true">3.3.</strong> The Default Connection</a></li><li class="chapter-item expanded "><a href="the-static-peer-provider.html"><strong aria-hidden="true">3.4.</strong> The StaticPeerProvider</a></li><li class="chapter-item expanded "><a href="the-file-data-seeder.html"><strong aria-hidden="true">3.5.</strong> The File DataSeeder</a></li></ol></li><li class="chapter-item expanded "><a href="ideas.html"><strong aria-hidden="true">4.</strong> Ideas for Extending the C19 protocol</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ideas-git-state.html"><strong aria-hidden="true">4.1.</strong> Git State</a></li><li class="chapter-item expanded "><a href="ideas-query-paradigm.html"><strong aria-hidden="true">4.2.</strong> Query Paradigm</a></li><li class="chapter-item expanded "><a href="ideas-redis-backed-state.html"><strong aria-hidden="true">4.3.</strong> Redis Backed State</a></li><li class="chapter-item expanded "><a href="ideas-sql.html"><strong aria-hidden="true">4.4.</strong> SQL Backed State</a></li></ol></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">5.</strong> Contributing</a></li><li class="chapter-item expanded "><a href="license.html"><strong aria-hidden="true">6.</strong> License</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The C19 Protocol / Developer Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#the-state-layer" id="the-state-layer">The State Layer</a></h1>
+<p>As mentioned, the state layer is responsible for holding and managing the data. It exposes ways for the Connection and Agent layers 
+to set and get values to and from the state.</p>
+<p>When implementing a <code>State</code> layer, one must conform to the <code>State</code> trait.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>/// The State trait.
+///
+/// Every state implementor must implement this trait. It is first auto-loaded by the configuration
+/// deserializer and then initialized by the library by calling the `init` function. The `init`
+/// function should return a [SafeState] which is then passed to the connection and agent layers.
+#[typetag::serde(tag = &quot;kind&quot;)]
+pub trait State: std::fmt::Debug + Send + Sync + CloneState {
+    /// Initializes the state and returns a state that is safe to be shared across threads.
+    ///
+    /// A state object is already loaded by the configuration. The implementor can use this
+    /// function to add or initialize any other relevant data and then return a SafeState object
+    /// which is shared with the connection and agent layers.
+    fn init(&amp;self) -&gt; SafeState;
+
+    /// Returns the version of the current state.
+    ///
+    /// An implementor can use this function to keep a version for each &quot;state&quot; of the sate. For
+    /// example, the default state implementation sets this value to 
+    /// a random string whenever the state changes. It is then saves that version in a version history which 
+    /// allows for the connection layer to compute diff between two versions. 
+    fn version(&amp;self) -&gt; String;
+
+    /// Sets a value to the state.
+    ///
+    /// There's no assumption about the value itself. It can be anything the implementor wishes.
+    /// The default state implementation, for example, treats this value as a map of key/value
+    /// pairs where the key is a String and the value conforms to a serde_json::Value value.
+    fn set(&amp;self, value: &amp;dyn StateValue) -&gt; Result&lt;(), Box&lt;dyn StdError&gt;&gt;;
+
+    /// Gets the value associated with the specified key.
+    ///
+    /// To allow maximum flexibility, the key itself is a StateValue, which in effect means it can
+    /// be anything desired by the implementor.
+    fn get(&amp;self, key: &amp;dyn StateValue) -&gt; Option&lt;Box&lt;dyn StateValue&gt;&gt;;
+
+    /// Returns the value associated with the specified key or the default if the key was not found 
+    /// in the state.
+    fn get_or(&amp;self, key: &amp;dyn StateValue, default: Box&lt;dyn StateValue&gt;) -&gt; Box&lt;dyn StateValue&gt; {
+        self.get(key).unwrap_or(default)
+    }
+
+    /// Returns the difference between this and the `other` state.
+    fn diff(&amp;self, other: &amp;dyn StateValue) -&gt; Result&lt;Box&lt;dyn StateValue&gt;, Box&lt;dyn StdError&gt;&gt;;
+
+    /// Returns the whole state as a StateValue.
+    ///
+    /// This is helpful when the connection layer wishes to publish the whole state to its peers.
+    fn get_root(&amp;self) -&gt; Option&lt;Box&lt;dyn StateValue&gt;&gt;;
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<p>As you can see from the code snippet of the <code>State</code> trait, a few functions must be implemented.</p>
+<p><code>init</code> - When the state layer is first being loaded by the framework, the <code>init</code> function is called and is expected to return a <code>SafeState</code> instance 
+of the state. A <code>SafeState</code> is just a typedef to the state wrapped in an <code>Arc</code> so it can be safely shared between the different layers. It is 
+up to the implementation to make sure the state is thread-safe. </p>
+<p>The <code>Default</code> state layer implementation uses this function to initialize a few background threads.</p>
+<p><code>version</code> - The <code>version</code> function can be used by a Connection layer to optimize exchanging states with other peers. The <code>Default</code> connection 
+layer implementation does not publish a state that has already been published before. It also uses it when retrieving a state from other peers by 
+specifying the version it has. The <code>Default</code> state layer calculates the version by hashing the keys and timestamps for each key. Each implementation 
+should choose what's best for its use case. Imagine a <code>Git</code> state layer where the version is the <code>HEAD</code>.</p>
+<p><code>set</code> - This is the function used by the other layers to set values into the state. You can see that it accepts a <code>StateValue</code>. You will learn more 
+about the <code>StateValue</code> later on in this chapter, but for now it's important to note that the <code>StateValue</code> can represent any data structure. The connection 
+and agent layers do not know anything about the value. They just pass a vector of bytes to the state and it's up to the state to deserialize it to the proper 
+data structure.</p>
+<p>The <code>Default</code> state assumes the <code>StateValue</code> is a JSON object with a key and a value that contains different fields (ttl, ts and the value itself).</p>
+<p><code>get</code> - This function is called by the other layers to get a value from the state. Same as the <code>set</code> function, it accepts a <code>StateValue</code> that should 
+represent something that the state knows how to deal with. The <code>Default</code> state assumes this is a string that represents the key to be retrieved.</p>
+<p><code>get_or</code> - Is a convenience function that allows to specify a default value if the key being retrieved does not exist.</p>
+<p><code>diff</code> - This function should calculate the diff between this state and the state that is specified as a parameter. The <code>Default</code> connection layer calls 
+this function when it wants to publish the changes since last publish time.</p>
+<p><code>get_root</code> - This function is called by other layers when they need the whole state. The <code>Default</code> connection layer uses it to get the full state to be exchanged 
+with other peers.</p>
+<h2><a class="header" href="#what-to-consider" id="what-to-consider">What to Consider</a></h2>
+<p>When implementing a State layer, we have to consider a few things:</p>
+<h3><a class="header" href="#how-do-we-hold-the-data" id="how-do-we-hold-the-data">How do we hold the data?</a></h3>
+<p>The data is being serialized and deserialized by the state layer. You must first decide what data structure will be used to represent the data.
+The <code>Default</code> state layer holds the data as a HashMap that maps a String key to a Value. The Value is in itself a struct that holds information about 
+the value and the value itself which is a <code>serde_json::Value</code> object.</p>
+<p>Or maybe the data should be held in a local DB like Redis or SQLite? You can then have your state get and set values to that DB instead of holding it yourself.</p>
+<h3><a class="header" href="#what-do-we-expect-from-the-connection-and-agent-layers-when-they-get-and-set-values" id="what-do-we-expect-from-the-connection-and-agent-layers-when-they-get-and-set-values">What do we expect from the Connection and Agent layers when they get and set values?</a></h3>
+<p>Since the user choose whatever combination of layers they want, the state layer cannot assume anything about the Agent and Connection layers. On the other 
+hand it has to expose ways for the agent and connection layers to get and set values to it. As you will learn in a following section, this is done by a struct that 
+implements the <code>StateValue</code> trait. A <code>StateValue</code> is something that can be serialized and deserialized to a byte vector. </p>
+<p>The agent and connection layers pass values to and from the state by form of a byte vector. They do not assume anything about the meaning of this byte vector. It can 
+be a JSON, binary data or any other structure. It is up to the state layer to decide what it should be.</p>
+<h3><a class="header" href="#what-other-properties-of-the-data-we-implement" id="what-other-properties-of-the-data-we-implement">What other properties of the data we implement?</a></h3>
+<p>Except for the value itself that is set by the user, a state layer can decide on other features to be included with a value. The <code>Default</code> state layer, for example, allows 
+setting a TTL for keys.</p>
+<h3><a class="header" href="#how-should-conflicts-be-resolved" id="how-should-conflicts-be-resolved">How should conflicts be resolved?</a></h3>
+<p>Since the C19 protocol is a distributed system, one must consider a case where a C19 agent is being updated by two other peers in parallel, each one setting the same key. One value might 
+be older than the other. It is up to the state layer to resolve the conflict.</p>
+<p>Imagine a case where C19 agent <code>A</code> is holding a key <code>k</code> with a certain value. Another C19 agent <code>B</code> is holding the same key but with an updated value that C19 agent A wasn't yet updated to.
+If they both update a C19 agent C then agent C would have to resolve the conflict of which value for key <code>k</code> it should hold.</p>
+<p>The <code>Default</code> state layer resolves conflicts by considering a timestamp for each key when it was first created. It will always choose the value that has the most recent timestamp.</p>
+<h3><a class="header" href="#thread-safety" id="thread-safety">Thread safety</a></h3>
+<p>The state is being passed around the layers which operates concurrently using different threads and futures. When implementing a <code>State</code> layer, you should make sure your data is 
+being protected from concurrent access. Put in other words, your state is a shared resource.</p>
+<h3><a class="header" href="#performance" id="performance">Performance</a></h3>
+<p>The connection and agent layers trust the state layer to be performant when setting and getting values. If the state layer is slow to respond it might affect the agent when replying to 
+the application or the connection layer when exchanging data with other peers. You should be mindful of the performance when you make decisions on implementation. The <code>Default</code> state layer 
+uses async set operations to make sure it doesn't block readers of the state. This way when the connection layer is setting a full state it got from another peer, the <code>get</code> operations performed 
+by the agent layer will not be blocked.</p>
+<p>The <code>Default</code> state holds the data in a HashMap which is behind a <code>RwLock</code>.</p>
+<h3><a class="header" href="#supporting-data-seeders" id="supporting-data-seeders">Supporting Data Seeders</a></h3>
+<p>Data seeders are a way to seed data into a C19 agent when it first loads. You will learn more about data seeders in a following chapter.
+It is recommended for a state layer to support data seeders.</p>
+<p>The <code>Default</code> state layer loads a data seeder when it first initializes.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="architecture.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="the-state-value.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="architecture.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="the-state-value.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

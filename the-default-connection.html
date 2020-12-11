@@ -1,0 +1,420 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Default Connection - The C19 Protocol / Developer Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The C19 Protocol / Developer Guide</a></li><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="concepts.html"><strong aria-hidden="true">1.</strong> Concepts</a></li><li class="chapter-item expanded "><a href="architecture.html"><strong aria-hidden="true">2.</strong> Architecture</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-state-layer.html"><strong aria-hidden="true">2.1.</strong> The State Layer</a></li><li class="chapter-item expanded "><a href="the-state-value.html"><strong aria-hidden="true">2.2.</strong> The State Value</a></li><li class="chapter-item expanded "><a href="the-agent-layer.html"><strong aria-hidden="true">2.3.</strong> The Agent Layer</a></li><li class="chapter-item expanded "><a href="the-connection-layer.html"><strong aria-hidden="true">2.4.</strong> The Connection Layer</a></li><li class="chapter-item expanded "><a href="configuration.html"><strong aria-hidden="true">2.5.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="peer-providers.html"><strong aria-hidden="true">2.6.</strong> Peer Providers</a></li><li class="chapter-item expanded "><a href="data-seeders.html"><strong aria-hidden="true">2.7.</strong> Data Seeders</a></li></ol></li><li class="chapter-item expanded "><a href="walkthrough.html"><strong aria-hidden="true">3.</strong> Walk-through of the Default Layers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-default-state.html"><strong aria-hidden="true">3.1.</strong> The Default State</a></li><li class="chapter-item expanded "><a href="the-default-agent.html"><strong aria-hidden="true">3.2.</strong> The Default Agent</a></li><li class="chapter-item expanded "><a href="the-default-connection.html" class="active"><strong aria-hidden="true">3.3.</strong> The Default Connection</a></li><li class="chapter-item expanded "><a href="the-static-peer-provider.html"><strong aria-hidden="true">3.4.</strong> The StaticPeerProvider</a></li><li class="chapter-item expanded "><a href="the-file-data-seeder.html"><strong aria-hidden="true">3.5.</strong> The File DataSeeder</a></li></ol></li><li class="chapter-item expanded "><a href="ideas.html"><strong aria-hidden="true">4.</strong> Ideas for Extending the C19 protocol</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ideas-git-state.html"><strong aria-hidden="true">4.1.</strong> Git State</a></li><li class="chapter-item expanded "><a href="ideas-query-paradigm.html"><strong aria-hidden="true">4.2.</strong> Query Paradigm</a></li><li class="chapter-item expanded "><a href="ideas-redis-backed-state.html"><strong aria-hidden="true">4.3.</strong> Redis Backed State</a></li><li class="chapter-item expanded "><a href="ideas-sql.html"><strong aria-hidden="true">4.4.</strong> SQL Backed State</a></li></ol></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">5.</strong> Contributing</a></li><li class="chapter-item expanded "><a href="license.html"><strong aria-hidden="true">6.</strong> License</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">The C19 Protocol / Developer Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#the-default-connection" id="the-default-connection">The Default Connection</a></h1>
+<p>The connection layer is responsible for exchanging the state with other peers. As mentioned before, this is probably the more involved layer to implement. 
+It is involved because one has to decide how the state should be exchanged and there are usually trade-offs to make. Exchanging to fast will be resource intensive, 
+while exchanging to slow will extend the imbalance of the shared state. </p>
+<h2><a class="header" href="#behavior" id="behavior">Behavior</a></h2>
+<p>The <code>Default</code> connection layer uses two threads to exchange the state with other peers: The publisher and receiver threads.</p>
+<p>The <code>publisher</code> thread publishes the only the changes made since the last publish time. 
+The <code>receiver</code> thread will connect and pull the full state from a peer if they both hold a different version of the state.</p>
+<p>Apart from the two threads for exchanging the state, the connection layer runs a HTTP server to allow other peers to connect and exchange the state with it.</p>
+<p>It exposes two endpoints: one for retrieving the state if the other for setting the state.</p>
+<h2><a class="header" href="#get" id="get">Get</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn get_handler(state: state::SafeState, req: &amp;Request&lt;Body&gt;) -&gt; Response&lt;Body&gt; {
+    let versions_match = req.uri().path().split('/').last().and_then(|version| {
+        trace!(&quot;get_handler / version {} ({})&quot;, version, state.version());
+
+        (version.is_empty() || version != state.version()).into()
+    }).unwrap();
+
+
+    if versions_match {
+        Responses::ok(state.get_root().unwrap().into())
+    } else {
+        Responses::no_content()
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Here, the <code>Default</code> connection layer compares the version it holds against the version reported by the connected peer. If the versions do not match then 
+it will return the full state. Otherwise nothing will be returned.</p>
+<h2><a class="header" href="#set" id="set">Set</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn set_handler&lt;'a&gt;(
+    state: state::SafeState,
+    req: Request&lt;Body&gt;,
+) -&gt; impl FutureExt&lt;Output = Result&lt;Response&lt;Body&gt;&gt;&gt; + 'a {
+    hyper::body::to_bytes(req.into_body())
+        .and_then(move |body| async move {
+            let body = &amp;body as &amp;dyn state::StateValue;
+            let result = state.set(body);
+
+            Ok(match result {
+                Ok(_) =&gt; Responses::no_content(),
+                _ =&gt; Responses::unprocessable(None),
+            })
+        })
+        .map_err(|e| e.into())
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>Default</code> connection layer exposes this function to allow other peers to publish their state. It will accept the state and set it to the <code>State</code> layer.</p>
+<h2><a class="header" href="#the-receiver-thread" id="the-receiver-thread">The Receiver Thread</a></h2>
+<p>The receiver thread connects to other peers and sends a HTTP <code>GET</code> request while specifying the version it holds. 
+It uses a peer provider to get the full list of available peers and randomly chooses a few of them.</p>
+<p>It them loops through the responses and sets them to the state.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    async fn receiver(&amp;self, state: state::SafeState) -&gt; Result&lt;()&gt; {
+        loop {
+            // sample r0 peers
+            let peers = self.peer_provider.get();
+            let peers = peers.into_iter().sample(self.r0);
+          
+            let res = stream::iter(peers)
+                .map(|peer| {
+                    let url = format!(&quot;http://{}:{}/{}&quot;, peer.ip(), peer.port().unwrap_or(self.target_port.unwrap_or(self.port)), state.version());
+                    let timeout = self.timeout;
+
+                    tokio::spawn(async move {
+                        trace!(&quot;Retreiving from {}&quot;, url);
+                        let client = Client::builder()
+                            .connect_timeout(Duration::from_millis(timeout))
+                            .build().unwrap();
+
+                        let result = client
+                            .get(&amp;url.to_string())
+                            .send()
+                            .await?
+                            .bytes()
+                            .await;
+
+                        result
+                    })
+                })
+                .buffer_unordered(4);
+
+            res.collect::&lt;Vec&lt;_&gt;&gt;().await.iter().for_each(|result| {
+                if let Ok(Ok(result)) = result {
+                    if let Err(e) = state.set(result as &amp;dyn state::StateValue) {
+                        warn!(&quot;Failed to set peer response to state; {}&quot;, e);
+                    }
+                }
+            });
+
+            time::delay_for(time::Duration::from_millis(self.pull_interval)).await;
+        }
+    }
+
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#the-publisher-thread" id="the-publisher-thread">The Publisher Thread</a></h2>
+<p>The publisher thread connects to other peers and publishes the changes since last publish time. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    async fn publisher(&amp;self, state: state::SafeState) -&gt; Result&lt;()&gt; {
+        let mut last_published: Vec&lt;u8&gt; = Vec::&lt;u8&gt;::default();
+        let mut last_published_version = String::default();
+
+        loop {
+            if last_published_version == state.version() {
+                time::delay_for(time::Duration::from_millis(self.push_interval)).await;
+                continue;
+            }
+
+            let last = last_published.clone();
+            let state_clone = state.clone();
+            let res = tokio::task::spawn_blocking(move || {
+                // get the recent state
+                let root = state_clone.get_root().unwrap().as_bytes().unwrap();
+
+                if root == last {
+                    return None;
+                }
+
+                let state_to_publish = state_clone.diff(&amp;last).and_then(|diff| {
+                    Ok(diff.as_bytes().unwrap())
+                }).or::&lt;Vec&lt;u8&gt;&gt;(Ok(root.clone())).unwrap();
+
+                Some((state_to_publish, root))
+            }).await?;
+
+            if res.is_none() {
+                time::delay_for(time::Duration::from_millis(self.push_interval)).await;
+                continue;
+            }
+
+            let (state_to_publish, last) = res.unwrap();
+            last_published = last;
+            last_published_version = state.version();
+
+            // sample r0 peers
+            let peers = self.peer_provider.get();
+            let peers = peers.into_iter().sample(self.r0);
+
+            // start sending to peers in parallel
+            let res = stream::iter(peers)
+                .map(|peer| {
+                    let state_to_publish = state_to_publish.clone();
+                    let url = format!(&quot;http://{}:{}/&quot;, peer.ip(), peer.port().unwrap_or(self.target_port.unwrap_or(self.port)));
+                    let timeout = self.timeout;
+
+                    tokio::spawn(async move {
+                        trace!(&quot;Sending to {}&quot;, url);
+                        let client = Client::builder()
+                            .connect_timeout(Duration::from_millis(timeout))
+                            .build().unwrap();
+
+                        let result = client
+                            .put(&amp;url.to_string())
+                            .body(state_to_publish)
+                            .send()
+                            .await?
+                            .bytes()
+                            .await;
+
+                        result
+                    })
+                })
+                .buffer_unordered(4);
+
+            res.collect::&lt;Vec&lt;_&gt;&gt;().await.iter().for_each(|result| {
+                if let Ok(Ok(result)) = result {
+                    if let Err(e) = state.set(result as &amp;dyn state::StateValue) {
+                        warn!(&quot;Failed to set peer response to state; {}&quot;, e);
+                    }
+                }
+            });
+
+            time::delay_for(time::Duration::from_millis(self.push_interval)).await;
+        }
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>[FIXME: no need for the publish state to set the responses to the state since all responses are expected to be no-content]</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="the-default-agent.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="the-static-peer-provider.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="the-default-agent.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="the-static-peer-provider.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
