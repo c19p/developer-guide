@@ -7,4 +7,4 @@ If you are a user of the C19 protocol and are not looking to develop for the pro
 
 If you feel comfortable coding in `Rust` and would love to add capabilities to the C19 protocol, this book is for you.
 
-[User Guide]: https://github.com/c19p/user-guide
+[User Guide]: https://c19p.github.io/user-guide/

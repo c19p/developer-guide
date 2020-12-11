@@ -11,4 +11,4 @@ gain by using and reading the user guide.
 
 So let's begin! Enjoy and have a save journey :)
 
-[User Guide]: [FIXME: link to user guide]
+[User Guide]: https://c19p.github.io/user-guide/

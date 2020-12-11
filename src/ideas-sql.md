@@ -1,6 +1,6 @@
 # SQL Backed State
 
-The [Redis] use-case shows how we can have `Redis` as the backend of the `State`. While `Redis` is an excellent choice, it doesn't have to be `Redis` 
+The `Redis` use-case shows how we can have `Redis` as the backend of the `State`. While `Redis` is an excellent choice, it doesn't have to be `Redis` 
 and can actually be anything that can hold data.
 
 Imagine `SQLite` as the backend of the `State`. This means that the data can be stored in a relational database and the payload of the data can 

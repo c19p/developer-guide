@@ -189,5 +189,3 @@ The publisher thread connects to other peers and publishes the changes since las
         }
     }
 ```
-
-[FIXME: no need for the publish state to set the responses to the state since all responses are expected to be no-content]

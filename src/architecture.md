@@ -13,4 +13,4 @@ in its own data structure in-memory.
 In this chapter we will explore the different layers in a bit more details and talk about the common parts that hold them together.
 
 [Architecture]: architecture.png "Architecture"
-[User Guide]: [FIXME: link to user guide / architecture]
+[User Guide]: https://c19p.github.io/user-guide/
