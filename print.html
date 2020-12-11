@@ -164,17 +164,16 @@
                         <h1><a class="header" href="#the-c19-protocol--developer-guide" id="the-c19-protocol--developer-guide">The C19 Protocol / Developer Guide</a></h1>
 <p><em>by Chen Fisher</em></p>
 <p>Hello! and welcome to the C19 protocol developer guide. This book is for developers who wish to contribute to the C19 project.
-If you are a user of the C19 protocol and are not looking to develop for the project, please refer to the <a href="https://github.com/c19p/user-guide">User Guide</a> for details and how-to guides.</p>
+If you are a user of the C19 protocol and are not looking to develop for the project, please refer to the <a href="https://c19p.github.io/user-guide/">User Guide</a> for details and how-to guides.</p>
 <p>If you feel comfortable coding in <code>Rust</code> and would love to add capabilities to the C19 protocol, this book is for you.</p>
 <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
 <p>Hello again! We're excited to see you here and are hoping you have a productive journey in extending the C19 protocol.</p>
 <p>This book will guide you through the steps for implementing the different layers of the C19 protocol and will show you the details and internals 
 of the project so you could add capabilities that might be missing for you to complete your layer implementations.</p>
-<p><strong>It is imperative</strong> that you first read the [User Guide] and get yourself familiar with being a user of the C19 protocol. 
+<p><strong>It is imperative</strong> that you first read the <a href="https://c19p.github.io/user-guide/">User Guide</a> and get yourself familiar with being a user of the C19 protocol. 
 This book will repeat some of the information that is presented in the user guide, but it's not a good replacement for the knowledge you will 
 gain by using and reading the user guide.</p>
 <p>So let's begin! Enjoy and have a save journey :)</p>
-<p>[User Guide]: [FIXME: link to user guide]</p>
 <h1><a class="header" href="#concepts" id="concepts">Concepts</a></h1>
 <p>The C19 protocol's main goal is to bring the data local to the application. To reduce the need for an application to handle fetching data.
 It does so by sharing state between different C19 agents.</p>
@@ -188,14 +187,13 @@ to communicate with the C19 agent, set and get values to and from the state.</p>
 <p>The next chapter will deep dive into the architecture of the project and will show you how everything is connected.</p>
 <h1><a class="header" href="#architecture" id="architecture">Architecture</a></h1>
 <p><img src="architecture.png" alt="Architecture" title="Architecture" /></p>
-<p>As mentioned a few times on the [User Guide], the main components of a C19 agent are its three different layers, each is responsible for a specific task:
+<p>As mentioned a few times on the <a href="https://c19p.github.io/user-guide/">User Guide</a>, the main components of a C19 agent are its three different layers, each is responsible for a specific task:
 The <code>Agent</code> exposes ways for your application to set and get values to and from the state, the <code>Connection</code> layer is responsible for exchanging the state with 
 other peers and the <code>State</code> is responsible for holding the state itself.</p>
 <p>A user of the C19 protocol has the option to choose any of the different layers to work together. For example, they might choose an Agent that exposes HTTP endpoints 
 for setting and getting values or one that exposes a Websocket connection. The State layer might be one that is backed up by a DB (e.g Redis) or one that holds the state 
 in its own data structure in-memory.</p>
 <p>In this chapter we will explore the different layers in a bit more details and talk about the common parts that hold them together.</p>
-<p>[User Guide]: [FIXME: link to user guide / architecture]</p>
 <h1><a class="header" href="#the-state-layer" id="the-state-layer">The State Layer</a></h1>
 <p>As mentioned, the state layer is responsible for holding and managing the data. It exposes ways for the Connection and Agent layers 
 to set and get values to and from the state.</p>
@@ -456,12 +454,9 @@ pub struct Default {
     /// The interval in milliseconds in which to purge expired values.
     ///
     /// Default value is 1 minute (60000 milliseconds).
-    /// [FIXME: use Duration instead of explicit milliseconds]
     purge_interval: u64,
 
     /// The DataSeeder to use for seeding the data on initialization.
-    ///
-    /// See more about DataSeeders here [FIXME: link to data seeders]
     data_seeder: Option&lt;Arc&lt;RwLock&lt;Box&lt;dyn DataSeeder&gt;&gt;&gt;&gt;,
 
     /// The version of the current state.
@@ -1049,7 +1044,6 @@ It uses a peer provider to get the full list of available peers and randomly cho
     }
 <span class="boring">}
 </span></code></pre></pre>
-<p>[FIXME: no need for the publish state to set the responses to the state since all responses are expected to be no-content]</p>
 <h1><a class="header" href="#the-staticpeerprovider-1" id="the-staticpeerprovider-1">The StaticPeerProvider</a></h1>
 <p>A peer provider is responsible for returning a list of available peers for the connection layer to choose from.</p>
 <p>The static peer provider allows configuring a predefined, static list of peer endpoints.</p>
@@ -1226,7 +1220,7 @@ or by exchanging the full <code>Redis RDB</code> file.</p>
 the payload of the data so the data can be a <code>JSON</code> object that represents a command to <code>Redis</code> or it can be a normal key value object to be stored 
 in <code>Redis</code> without being to specific to the fact that it's <code>Redis</code>.</p>
 <h1><a class="header" href="#sql-backed-state" id="sql-backed-state">SQL Backed State</a></h1>
-<p>The [Redis] use-case shows how we can have <code>Redis</code> as the backend of the <code>State</code>. While <code>Redis</code> is an excellent choice, it doesn't have to be <code>Redis</code> 
+<p>The <code>Redis</code> use-case shows how we can have <code>Redis</code> as the backend of the <code>State</code>. While <code>Redis</code> is an excellent choice, it doesn't have to be <code>Redis</code> 
 and can actually be anything that can hold data.</p>
 <p>Imagine <code>SQLite</code> as the backend of the <code>State</code>. This means that the data can be stored in a relational database and the payload of the data can 
 be a JSON object that represents a rows in the database or a set of rows. Of course if doesn't have to be JSON and can be any format you see fit.</p>
@@ -1237,8 +1231,8 @@ be a JSON object that represents a rows in the database or a set of rows. Of cou
 <p>We care and invest a lot on documentation. When contributing it is important to go over the user guide and developer guide 
 and get yourself familiar with the architecture of the project.</p>
 <ul>
-<li><a href="()">User Guide</a></li>
-<li><a href="()">Developer Guide</a></li>
+<li><a href="https://c19p.github.io/user-guide/">User Guide</a></li>
+<li><a href="https://c19p.github.io/developer-guide/">Developer Guide</a></li>
 </ul>
 <h2><a class="header" href="#github-issues" id="github-issues">Github Issues</a></h2>
 <p>Everything should be handled in Github Issues. Bugs, PRs, discussions, etc...</p>
@@ -1255,7 +1249,6 @@ and get yourself familiar with the architecture of the project.</p>
 <li>Documentation</li>
 <li>Roadmap</li>
 </ul>
-<p>[FIXME: links to books]</p>
 <h1><a class="header" href="#license" id="license">License</a></h1>
 <p>Copyright (c) 2020, Chen Fisher.
 All rights reserved.</p>
