@@ -25,5 +25,3 @@
   - [SQL Backed State](ideas-sql.md)
 - [Contributing](contributing.md)
 - [License](license.md)
-
-[FIXME: Add license]

@@ -46,12 +46,9 @@ pub struct Default {
     /// The interval in milliseconds in which to purge expired values.
     ///
     /// Default value is 1 minute (60000 milliseconds).
-    /// [FIXME: use Duration instead of explicit milliseconds]
     purge_interval: u64,
 
     /// The DataSeeder to use for seeding the data on initialization.
-    ///
-    /// See more about DataSeeders here [FIXME: link to data seeders]
     data_seeder: Option<Arc<RwLock<Box<dyn DataSeeder>>>>,
 
     /// The version of the current state.
